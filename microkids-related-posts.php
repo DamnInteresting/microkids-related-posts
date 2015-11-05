@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: Microkid's Related Posts
+Plugin Name: Microkid's Related Posts (Forked)
 Plugin URI: http://www.microkid.net/wordpress/related-posts/
 Description: Display a set of manually selected related items with your posts
 Author: Microkid
-Version: 4.0.6
+Version: 4.0.8
 Author URI: http://www.superinteractive.com
 
 This software is distributed in the hope that it will be useful,
@@ -280,7 +280,11 @@ function MRP_save_postdata( $post_id ) {
 			return $post_id;	
 		}
 	}
-	MRP_save_relationships( $post_id, $_POST['MRP_related_posts'] );
+
+	//Make sure related posts data is not empty
+	if(isset($_POST['MRP_related_posts'])) {
+		MRP_save_relationships( $post_id, $_POST['MRP_related_posts'] );
+	}
 }
 
 /**
