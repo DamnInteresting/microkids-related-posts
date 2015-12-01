@@ -4,7 +4,7 @@ Plugin Name: Microkid's Related Posts (Forked)
 Plugin URI: http://www.microkid.net/wordpress/related-posts/
 Description: Display a set of manually selected related items with your posts
 Author: Microkid
-Version: 4.0.8
+Version: 4.0.9
 Author URI: http://www.superinteractive.com
 
 This software is distributed in the hope that it will be useful,
@@ -443,7 +443,7 @@ function MRP_get_related_posts( $post_id, $return_object = false, $hide_unpublis
 		# Show only specified post type?
 		if( isset( $post_type ) ) {
 		    if( is_array( $post_type ) ) {
-		        $query .= " AND wp.post_type IN (".implode( ",", $post_type ).") ";
+		        $query .= " AND wp.post_type IN ('".implode( "','", $post_type )."') ";
 		    }
 		    else {
 		        $query .= " AND wp.post_type = '$post_type' ";
@@ -464,7 +464,7 @@ function MRP_get_related_posts( $post_id, $return_object = false, $hide_unpublis
 		# Show only specified post type?
 		if( isset( $post_type ) ) {
 		    if( is_array( $post_type ) ) {
-		        $query .= " AND wp.post_type IN (".implode( ",", $post_type ).") ";
+		        $query .= " AND wp.post_type IN ('".implode( "','", $post_type )."') ";
 		    }
 		    else {
 		        $query .= " AND wp.post_type = '$post_type' ";
@@ -489,7 +489,7 @@ function MRP_get_related_posts( $post_id, $return_object = false, $hide_unpublis
 		# Show only specified post type?
 		if( isset( $post_type ) ) {
 		    if( is_array( $post_type ) ) {
-		        $query .= " AND wp.post_type IN (".implode( ",", $post_type ).") ";
+		        $query .= " AND wp.post_type IN ('".implode( "','", $post_type )."') ";
 		    }
 		    else {
 		        $query .= " AND wp.post_type = '$post_type' ";
